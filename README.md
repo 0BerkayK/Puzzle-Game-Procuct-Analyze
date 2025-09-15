@@ -14,27 +14,27 @@ Proje, dört temel alana odaklanmıştır:
 
 1. **Feature Geliştirme ve Analizi**
    - Segment bazlı retention analizi
-   - Data-driven ve yaratıcı öneriler (`insights/feature_recommendations.md`)
+   - Data-driven ve yaratıcı öneriler 
    - Önerilen oyun özellikleri ve iyileştirme alanları
 
 2. **A/B Test Planlama ve Analizi**
    - A/B test senaryoları ve hipotezler
    - 1-day ve 7-day retention üzerine testler
    - İstatistiksel analiz (t-test)
-   - Sonuç raporu (`notebooks/ab_test_analysis.ipynb`, `insights/ab_test_results.md`)
+   - Sonuç raporu 
 
 3. **Mobil Oyun Pazarı Araştırması**
    - Benchmark veri seti oluşturma veya simülasyon
    - Cookie Cats vs. benchmark karşılaştırması
    - Market trendleri ve oyuncu segmentlerine göre öneriler
-   - Analiz notebook ve rapor (`notebooks/04_market_research.ipynb`, `insights/market_trends.md`)
+   - Analiz notebook ve rapor 
 
 4. **QA ve Test Planlama**
    - Retention ve feature logic QA kontrolleri
    - A/B test varyant dağılım kontrolü
    - 7-day bonus feature testi
-   - QA checklist (`qa/qa_checklist.md`)
-   - QA notebook (`notebooks/05_qa_plan.ipynb`)
+   - QA checklist 
+   - QA notebook
 
 ---
 
