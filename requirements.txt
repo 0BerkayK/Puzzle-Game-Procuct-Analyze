@@ -1,0 +1,14 @@
+# Veri analizi ve manipülasyon
+pandas==2.1.0
+numpy==1.26.0
+
+# Görselleştirme
+matplotlib==3.8.0
+seaborn==0.12.3
+
+# İstatistiksel testler
+scipy==1.11.0
+
+# Jupyter Notebook
+jupyter==1.0.0
+notebook==7.3.2
