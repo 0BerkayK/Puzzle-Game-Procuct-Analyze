@@ -1,65 +1,50 @@
-# Puzzle-Game-Procuct-Analyze
+# Cookie Cats Puzzle Game Analysis Project
+
 This project has been prepared in line with the job responsibilities and required qualifications of Vento Games' Product Specialist job posting.
 
 
 
-Veri Seti Hakkında (Cookie Cats A/B Dataset)
+## Proje Hakkında
+Bu proje, Cookie Cats adlı mobil bulmaca oyunu üzerinden **veri odaklı oyun geliştirme ve analiz süreçlerini** simüle etmek için hazırlanmıştır. Amaç, oyuncu davranışlarını anlamak, A/B testleri ile iyileştirme fırsatlarını belirlemek, mobil oyun pazarını benchmark etmek ve QA süreçlerini yönetmektir.
 
-Oyun türü: Match-3 tarzı puzzle oyunu .
+---
 
-Deney: Oyuncular rastgele 2 gruba ayrılıyor:
+## Proje Kapsamı
+Proje, dört temel alana odaklanmıştır:
 
-Kontrol (Gate_30): Oyuncular 30. seviyede “gate” (geçiş engeli) ile karşılaşıyor.
+1. **Feature Geliştirme ve Analizi**
+   - Segment bazlı retention analizi
+   - Data-driven ve yaratıcı öneriler (`insights/feature_recommendations.md`)
+   - Önerilen oyun özellikleri ve iyileştirme alanları
 
-Varyant (Gate_40): Gate seviyesi 40’a çekilmiş.
+2. **A/B Test Planlama ve Analizi**
+   - A/B test senaryoları ve hipotezler
+   - 1-day ve 7-day retention üzerine testler
+   - İstatistiksel analiz (t-test)
+   - Sonuç raporu (`notebooks/ab_test_analysis.ipynb`, `insights/ab_test_results.md`)
 
-Amaç: Gate’in konumu, retention (1-day, 7-day) ve oyuncu bağlılığı üzerinde nasıl etki yaratıyor?
+3. **Mobil Oyun Pazarı Araştırması**
+   - Benchmark veri seti oluşturma veya simülasyon
+   - Cookie Cats vs. benchmark karşılaştırması
+   - Market trendleri ve oyuncu segmentlerine göre öneriler
+   - Analiz notebook ve rapor (`notebooks/04_market_research.ipynb`, `insights/market_trends.md`)
 
-Kolonlar (dataset’te tipik olanlar):
+4. **QA ve Test Planlama**
+   - Retention ve feature logic QA kontrolleri
+   - A/B test varyant dağılım kontrolü
+   - 7-day bonus feature testi
+   - QA checklist (`qa/qa_checklist.md`)
+   - QA notebook (`notebooks/05_qa_plan.ipynb`)
 
-userid: oyuncu kimliği
+---
 
-version: Gate_30 / Gate_40
-
-sum_gamerounds: toplam oynanan round sayısı
-
-retention_1: 1. günde geri dönüp dönmedi (binary)
-
-retention_7: 7. günde geri dönüp dönmedi (binary)
-
-
-
-🔹 Adım A – Veri odaklı & yaratıcı özellik geliştirme
-
-Veri temizleme + keşifsel analiz (EDA) → hangi gruptaki oyuncular daha çok round oynuyor, retention oranı nasıl?
-
-Retention ve oynanış davranışlarına göre özellik önerisi çıkaracağız. (örn. “early engagement bonus”, “yardımcı ipucu”, “günlük ödül sistemi”).
-
-🔹 Adım B – A/B test planı ve istatistiksel analiz
-
-Kontrol vs varyant gruplarının retention farkını test et (ki-kare testi veya z-testi).
-
-Sonuçları görselleştir (bar chart: retention_1 ve retention_7 karşılaştırması).
-
-Etki büyüklüğünü (effect size) ölç → fark iş açısından anlamlı mı?
-
-🔹 Adım C – Mobil oyun pazar araştırması
-
-Benzer puzzle oyunlarının retention benchmark’larını bulacağız.
-
-“Cookie Cats” sonuçlarını sektör ortalamasıyla kıyaslayıp, hangi metriklerin iyileştirilmesi gerektiğini paylaşacağız.
-
-🔹 Adım D – QA süreci & kalite kontrol
-
-Yeni önerilen özellik için QA test senaryoları oluşturacağız (örnek: günlük ödül sistemi eklenirse test edilecek fonksiyonellikler).
-
-Hangi kalite kriterlerine (stabilite, UX, performans) bakılması gerektiğini belirleyeceğiz.
+## Proje Yapısı
 
 ``` bash 
 │
 ├── data/
 │   └── cookie_cats.csv                # Kaggle’dan indirilen veri seti
-│
+│   └── puzzle_games_benchmark.csv     # Benchmark veri seti
 ├── notebooks/
 │   ├── 01_cookiecats_eda.ipynb        # Keşifsel veri analizi (EDA)
 │   ├── 02_feature_ideas.ipynb         # Özellik geliştirme (veri odaklı + yaratıcı fikirler)
@@ -68,9 +53,7 @@ Hangi kalite kriterlerine (stabilite, UX, performans) bakılması gerektiğini b
 │   └── 05_qa_plan.ipynb               # QA senaryoları & kalite standartları
 │
 ├── scripts/
-│   ├── data_preprocessing.py          # Veri temizleme & preprocessing scripti
-│   ├── ab_test_functions.py           # Hipotez testleri, metrik hesaplama fonksiyonları
-│   └── visualization_utils.py         # Grafik çizim fonksiyonları
+│   ├── generate_benchmark_csv.py      # puzzle_games_benchmark.csv yi üretmek için kullanılan script
 │
 ├── dashboards/
 │   └── ab_test_results.pbix           # Power BI / Tableau / Looker Studio dashboard
@@ -86,3 +69,40 @@ Hangi kalite kriterlerine (stabilite, UX, performans) bakılması gerektiğini b
 
 
 ```
+
+## Kullanılan Veri Setleri
+
+Proje boyunca aşağıdaki veri setleri kullanılmıştır:
+
+1. **Cookie Cats A/B Dataset**  
+   - Açıklama: Cookie Cats mobil bulmaca oyunu üzerinden toplanmış oyuncu davranışları, retention ve A/B test varyantlarını içeren veri seti.  
+   - İçerik: 
+     - `user_id` : Oyuncu kimliği
+     - `version` : A/B test varyantı (ör. gate_30, gate_40)
+     - `sum_gamerounds` : Oyuncunun toplam oyun turu sayısı
+     - `retention_1` : 1. gün retention (True/False)
+     - `retention_7` : 7. gün retention (True/False)
+     - Diğer feature sütunları (bonus_7day, vb.)
+   - Kaynak / Link: [Cookie Cats A/B Dataset on Kaggle](https://www.kaggle.com/datasets/marwandiab/cookie-catsdataset?utm_source=chatgpt.com)
+
+2. **Puzzle Games Benchmark Dataset**  
+   - Açıklama: Benchmark amacıyla simüle edilmiş puzzle oyunları verisi.  
+   - İçerik: `game`, `publisher`, `retention_1`, `retention_7`  
+   - Bu dataset proje içinde `data/puzzle_games_benchmark.csv` olarak oluşturulmuştur.
+  
+
+
+
+## Kullanılan Teknolojiler
+- **Python:** pandas, numpy, matplotlib, seaborn, scipy  
+- **Jupyter Notebook:** Analiz ve görselleştirme  
+- **Markdown:** Rapor ve QA dokümantasyonu  
+
+---
+
+## Nasıl Kullanılır?
+1. Repository’yi klonlayın.
+2. Gerekli Python kütüphanelerini yükleyin:
+   ```bash
+   pip install -r requirements.txt
+
