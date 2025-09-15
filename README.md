@@ -1,7 +1,6 @@
 # Cookie Cats Puzzle Game Analysis Project
 
-This project has been prepared in line with the job responsibilities and required qualifications of Vento Games' Product Specialist job posting.
-
+Bu proje Vento Games Porduct Specialist iş ilanında belirtilen iş sorumlulukları ve aranan nitelikler doğrultusunda hazırlanmıştır.
 
 
 ## Proje Hakkında
@@ -54,9 +53,6 @@ Proje, dört temel alana odaklanmıştır:
 │
 ├── scripts/
 │   ├── generate_benchmark_csv.py      # puzzle_games_benchmark.csv yi üretmek için kullanılan script
-│
-├── dashboards/
-│   └── ab_test_results.pbix           # Power BI / Tableau / Looker Studio dashboard
 │
 ├── reports/
 │   ├── feature_recommendations.md     # Veri odaklı yeni özellik önerileri
